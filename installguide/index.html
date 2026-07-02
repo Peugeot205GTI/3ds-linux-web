@@ -1,0 +1,64 @@
+<!DOCTYPE htmL>
+<html lang="en"><head>
+<title>3DS-Linux - Installation Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Modern Linux, now in 3D !"><link rel="icon" type="image/png" sizes="32x32" href="/3dslinux32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/3dslinuxlogo16x16.png">
+<body>
+<pre>
+3DS-Linux - Installation Guide
+------------------------------
+<a href="/">Back to main page</a>
+
+This guide will walk you through the process of setting up a 3DS-Linux system using the official Void-Linux images.
+<h2>Requirements</h2>
+- A 3DS (any model) modified to run Luma3DS (<a href="https://3ds.hacks.guide">3DS Hacks Guide</a> will  walk you through this process)
+- An SD Card of 2GB or more in capacity
+- Linux computer for installation
+  - GNU tar is <b>required</b> to extract properly
+- Some idea of what you're doing (you should read the guide once before doing anything)
+<h2>Manual Installation</h2> 
+<small><small>This is the only option currently</small></small>
+1. From the <a href="/downloads">3DS-Linux Downloads page</a>, download the Latest Void-Linux rootfs (.tar.gz) and the latest sd card files.
+2. Partition your SD card. the recommended layout is a FAT 32 partition and an EXT4 partition.
+  - Partiton 1 - FAT 32 (Luma3DS and bootloader)
+    The SD card files take no more than 50 MB, Luma3DS included.
+    However, to leave space for the stock OS's (Horizon OS; HOS) files (game saves) and homebrew apps, 1GB is recomended.
+  - Partiton 2 - EXT4 (Void-Linux root filesystem)
+    The rootfs is by default slightly over 500MB, to have space for updates and more programs, 1GB is a minimum. 4+ GB recomended.
+3. Formatting partitions
+<b>!!! If you did not erase the 1st partiton when partitioning, formatting it is not required, and will cause you to lose all data if not backed up !!!</b>
+<small>You have been warned.</small>
+  - Partition 1 - FAT32
+    sudo mkfs.vfat -F 32 -L '3DS-SD' /dev/[sd block device here]
+  - Partition 2 - EXT4
+    sudo mkfs.ext4 -L 'void' /dev/[rootfs block device here]
+4. Extract the SD card files to the FAT32 partition
+  1. sudo mount /dev/[SD block device here] /mnt
+  2. cd /mnt
+  3. tar -xzvf [/path/to/sd_files.tgz]
+  4. cd -; sudo umount /mnt
+5. extract the rootfs
+  1. sudo mount /dev/[rootfs block device here] /mnt
+  2. cd /mnt
+  3. tar -xvP --acls --xattrs --same-owner --same-permissions --numeric-owner --sparse -f [/path/to/rootfs.tar.gz]
+    - <b>All of the flags are required for proper extraction of the rootfs</b>
+  4. sync; cd; sudo umount /mnt
+    - This might take a bit of time if your card or reader is slow. <b> Dont interrupt it !</b>
+6. Remove the SD card from your computer.
+<h2>Booting</h2>
+1. Insert the SD card into your 3DS.
+2. With the console powered off, press and hold the Y button, then press the power button. (You can now let go of Y)
+  - The FIRM Linux Loader should appear for a moment, then switch to linux.
+   - If FIRM Linux Loader does not appear, wait for HOS to boot, power off the console, then retry step 2.
+3. Wait for Linux to boot to the login prompt
+4. Enter the login "root" and password "a". This password was chosen to facilitate login, as the touch keyboard isn't exactly practical.
+5. Enjoy
+</pre>
+<hr>
+<p align="center" style="font-family: monospace">
+This site is <a href="https://justfuckingusehtml.com/">proudly written in basic HTML and near-zero CSS</a><br>
+<br>
+(C) Copyright 2026-2026 ToyotaAE86Trueno.  Some rights reserved<br>
+See <a href="/legal">legal disclaimers, privacy policy, copyright, and trademark notices</a>
+</p>
+</body>
+</html>

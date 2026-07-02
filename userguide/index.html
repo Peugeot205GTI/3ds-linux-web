@@ -1,0 +1,37 @@
+<!DOCTYPE htmL>
+<html lang="en"><head>
+<title>3DS-Linux - User Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Modern Linux, now in 3D !"><link rel="icon" type="image/png" sizes="32x32" href="/3dslinux32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/3dslinuxlogo16x16.png">
+<body>
+<pre>
+3DS-Linux - User Guide
+----------------------
+<a href="/">Back to main page</a>
+<h2>Installing / updating packages</h2>
+Since the internal WiFi is not supported at the moment, all package installs must be done externally.
+
+1. Power off your 3DS and insert the SD card into a linux PC
+2. On your PC, install qemu-user and qemu-user-binfmt
+  - Arch Linux : sudo pacman -S qemu-user qemu-user-binfmt
+  - Debian : sudo apt install qemu-user qemu-user-binfmt
+  - Void Linux : sudo xbps-install qemu-user binfmt-support
+3. Mount the rootfs
+  - sudo mount /dev/[rootfs block device here] /mnt
+4. Chroot into the rootfs
+  - for d in proc sys dev dev/pts run; do mount --bind /$d /mnt/$d; done && chroot /mnt /bin/bash
+  You should now be in the void-linux install.
+5. Install/upgrade as you would on Void-Linux with xbps
+6. Exit the chroot
+  - exit
+7. Unmount and clean up
+  - sync && for d in dev/pts dev sys proc run; do umount /mnt/$d; done
+8. Place the SD card back into your 3DS
+<hr>
+<p align="center" style="font-family: monospace">
+This site is <a href="https://justfuckingusehtml.com/">proudly written in basic HTML and near-zero CSS</a><br>
+<br>
+(C) Copyright 2026-2026 ToyotaAE86Trueno.  Some rights reserved<br>
+See <a href="/legal">legal disclaimers, privacy policy, copyright, and trademark notices</a>
+</p>
+</body>
+</html>

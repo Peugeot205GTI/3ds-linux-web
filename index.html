@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+	img {
+		display: inline;
+		height: 32px;
+		width: auto;
+	}
+</style>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Modern Linux, now in 3D !">
+<link rel="icon" type="image/png" sizes="16x16" href="/3dslinuxlogo16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/3dslinuxlogo32x32.png">
+<title>3DS-Linux</title>
+</head>
+<body>
+<pre>
+<b>3DS-Linux</b>
+<b>---------</b>
+
+It's Linux(R) on the 3DS(TM), but it's even more modern, and works well!
+What works and works well:
+- Booting
+  - Booting properly to a TTY on original 3DS consoles (2DS and 3DS XL too)
+  - Booting from the <a href="https://github.com/LumaTeam/Luma3DS">Luma3DS</a> custom firmware
+- Hardware
+  - RAM : all 128MB of FCRAM are usable
+  - Using VRAM to store the framebuffers in RGB565, allowing all RAM to be usable by linux
+  - SD Cards
+  - Virtual keyboard on the bottom touch screen
+  - Graphics output on the top display in 400x240, using either the Linux VT, or anything that writes to /dev/fb0 (e.g. Xorg)
+  - Battery status reporting
+  - Circlepad input as mouse movement
+  - Gamepad buttons exposed as GPIO
+  - Notification LED (unused but support is present)
+  - Internal STMicroelectronics LIS331DLH accelerometer
+- App support
+  - Most applications that you would want to use - anything in Void Linux officially
+  - X11 Windowing system - lightweight Window Managers / Desktop Environements will work
+
+What works if you ignore the obvious problems:
+- Powering off the console from linux (kernel panics right before powering off)
+
+What doesn't work at all:
+- WiFi (no support for the actual wifi chip, documentation is quite scarce, but support is planned)
+- Sound
+- Booting from Horizon OS (no way to get complete hardware control once HOS starts)
+
+What isn't tested:
+- Booting on New 3DS consoles (New 3DS XL and New 2DS XL too) - I dont have any, if you would like to test and give feedback, contact me
+
+<b>Links</b>
+<b>-----</b>
+- <a href="/downloads">Downloads page</a>  <b>Get all of the files here!</b>
+- <a href="/installguide">Installation Guide</a>
+- <a href="/userguide">User Guide</a>
+
+Developers
+-----------
+- "ToyotaAE86Trueno"
+  - Lead project organiser
+  - Tester (o3DS)
+  - Gives Support
+  - Part of the current kernel development
+  - Website administrator
+  - Got most of everything after 5.11-RC1 working
+</pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/Peugeot205GTI"><img src="/icons/github.svg" alt="GitHub Icon"></a>
+<pre>
+- "Techflash"
+  - Developer
+  - Tester (o3DS)
+  - Got Linux 7.1 working the day it released
+  - Wii-Linux project maintainer
+  - Website and downloads hosting
+</pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://techflash.site"><img src="/icons/web_32x32.png" alt="Globe icon"></a>
+<a href="https://github.com/techflashYT"><img src="/icons/github.svg" alt="GitHub Icon"></a>
+<a href="https://youtube.com/techflashYT"><img src="/icons/youtube.svg" alt="YouTube Icon"></a>
+<a href="https://wii-linux.org"><img src="/icons/wiilinux.svg" alt="Wii-Linux logo"></a>
+<pre>
+Special thanks
+---------------
+- "Wolfvak"
+  - Previously the main kernel developer
+  - Got kernel 5.11-rc1 working
+  - Active member of the 3DS homebrew community
+</pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/Wolfvak"><img src="/icons/github.svg" alt="GitHub Icon"></a>
+<pre>
+- The Void Linux team
+  - Developement of Void Linux - the primary linux distribution for 3DS-Linux
+  - Still caring about ARMv6 devices in 2026
+</pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://voidlinux.org/"><img src="/icons/void.svg" alt="Void Linux logo"></a>
+<hr>
+<p align="center" style="font-family: monospace">
+This site is <a href="https://justfuckingusehtml.com/">proudly written in basic HTML and near-zero CSS</a><br>
+<br>
+(C) Copyright 2026-2026 ToyotaAE86Trueno.  Some rights reserved<br>
+See <a href="/legal">legal disclaimers, privacy policy, copyright, and trademark notices</a>
+</p>
+</body>
+</html>
